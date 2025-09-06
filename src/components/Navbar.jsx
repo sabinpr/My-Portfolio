@@ -10,9 +10,13 @@ export default function Navbar({ onThemeToggle, dark, onOpenNav, navOpen }) {
             <div className="text-xl font-bold">
               <a
                 href="#"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="flex items-center h-8 hover:scale-105 transition-transform duration-200"
+                onClick={(e) => {
+                  e.preventDefault(); // prevent default jump
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
               >
-                <img src="/logo.png" alt="Logo" className="h-8" />
+                <img src="/logo.png" alt="Logo" className="h-full" />
               </a>
             </div>
             <nav className="hidden md:flex gap-6 ml-6 text-sm text-gray-700 dark:text-gray-300">
