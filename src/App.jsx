@@ -10,20 +10,30 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function App() {
-  const [dark, setDark] = useState(false);
+  const getInitialTheme = () => {
+    // Check localStorage first
+    const saved = localStorage.getItem("theme");
+    if (saved) return saved === "dark";
+    // Fallback to system preference
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  };
+
+  const [dark, setDark] = useState(getInitialTheme);
   const [navOpen, setNavOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     if (dark) {
       document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   }, [dark]);
 
   return (
-    <div className="font-sans bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="font-sans bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <Navbar
         dark={dark}
         onThemeToggle={() => setDark(!dark)}
