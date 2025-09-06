@@ -4,21 +4,45 @@ import Container from "./Container";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState(""); // success or error message
+  const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setStatus("");
 
-    // Clear form after 1.5 seconds and hide message
-    setTimeout(() => {
-      setForm({ name: "", email: "", message: "" });
-      setSubmitted(false);
-    }, 1500);
+    try {
+      const res = await fetch(
+        "https://portfolio-backend-production-d840.up.railway.app/api/contact/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus("✅ Message sent successfully!");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus("⚠️ Failed to send message: " + (data.message || ""));
+      }
+    } catch (err) {
+      setStatus("⚠️ Error: " + err.message);
+    } finally {
+      setLoading(false);
+      // Hide message after 3 seconds
+      setTimeout(() => setStatus(""), 3000);
+    }
   }
 
   return (
@@ -69,16 +93,17 @@ export default function Contact() {
             <div>
               <button
                 type="submit"
-                className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors duration-200"
+                disabled={loading}
+                className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors duration-200 disabled:opacity-50"
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </div>
 
-            {/* Animated success message */}
-            {submitted && (
+            {/* Status Message */}
+            {status && (
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full bg-green-500 text-white px-4 py-2 rounded-md animate-slide-down shadow-lg">
-                Message sent successfully!
+                {status}
               </div>
             )}
           </form>
@@ -128,7 +153,6 @@ export default function Contact() {
         </div>
       </Container>
 
-      {/* Tailwind keyframes for slide-down animation */}
       <style>
         {`
           @keyframes slide-down {
