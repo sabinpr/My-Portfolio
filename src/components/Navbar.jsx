@@ -8,7 +8,12 @@ export default function Navbar({ onThemeToggle, dark, onOpenNav, navOpen }) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="text-xl font-bold">
-              <img src="/logo.png" alt="Logo" className="h-8" />
+              <a
+                href="#"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                <img src="/logo.png" alt="Logo" className="h-8" />
+              </a>
             </div>
             <nav className="hidden md:flex gap-6 ml-6 text-sm text-gray-700 dark:text-gray-300">
               <a href="#about" className="hover:text-indigo-600">
