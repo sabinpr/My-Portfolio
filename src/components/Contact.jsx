@@ -4,6 +4,7 @@ import Container from "./Container";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -11,8 +12,13 @@ export default function Contact() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    alert(`Thanks ${form.name || "there"} — message received!`);
-    setForm({ name: "", email: "", message: "" });
+    setSubmitted(true);
+
+    // Clear form after 1.5 seconds and hide message
+    setTimeout(() => {
+      setForm({ name: "", email: "", message: "" });
+      setSubmitted(false);
+    }, 1500);
   }
 
   return (
@@ -21,7 +27,7 @@ export default function Contact() {
         <h2 className="text-2xl font-semibold">Contact</h2>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6 relative">
             <div>
               <label className="text-sm font-medium">Name</label>
               <input
@@ -68,6 +74,13 @@ export default function Contact() {
                 Send Message
               </button>
             </div>
+
+            {/* Animated success message */}
+            {submitted && (
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full bg-green-500 text-white px-4 py-2 rounded-md animate-slide-down shadow-lg">
+                Message sent successfully!
+              </div>
+            )}
           </form>
 
           {/* Contact Info */}
@@ -79,24 +92,54 @@ export default function Contact() {
             <div className="mt-6 space-y-4">
               <div className="flex items-center gap-3 hover:text-indigo-600 transition-colors duration-200 cursor-pointer">
                 <FiMail />
-                <span className="text-sm">
+                <a
+                  href="mailto:sabinprajapati.verified@gmail.com"
+                  className="text-sm"
+                >
                   sabinprajapati.verified@gmail.com
-                </span>
+                </a>
               </div>
+
               <div className="flex items-center gap-3 hover:text-indigo-600 transition-colors duration-200 cursor-pointer">
                 <FiGithub />
-                <span className="text-sm">github.com/sabinpr</span>
+                <a
+                  href="https://github.com/sabinpr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm"
+                >
+                  github.com/sabinpr
+                </a>
               </div>
+
               <div className="flex items-center gap-3 hover:text-indigo-600 transition-colors duration-200 cursor-pointer">
                 <FiLinkedin />
-                <span className="text-sm">
+                <a
+                  href="https://linkedin.com/in/sabin-prajapati-6b8b4523b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm"
+                >
                   linkedin.com/in/sabin-prajapati-6b8b4523b/
-                </span>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </Container>
+
+      {/* Tailwind keyframes for slide-down animation */}
+      <style>
+        {`
+          @keyframes slide-down {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+          }
+          .animate-slide-down {
+            animation: slide-down 0.5s ease forwards;
+          }
+        `}
+      </style>
     </section>
   );
 }
