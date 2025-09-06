@@ -2,15 +2,15 @@ export const experiences = [
   {
     id: 1,
     role: "Backend Intern",
-    org: "DigitalPulseHub",
+    org: "Mindrisers Inc.",
     date: "Jul 2025 - Present",
-    desc: "Building Django REST APIs, Celery integration and unit tests.",
+    desc: "Developing Django REST APIs, managing PostgreSQL databases, and building backend services.",
   },
   {
     id: 2,
-    role: "Fullstack Project",
-    org: "Everest Equity Club",
-    date: "May 2025 - Jul 2025",
-    desc: "Designed member/admin dashboards, proposal workflows and voting.",
+    role: "Fullstack Developer (Personal Projects)",
+    org: "Self-Projects",
+    date: "2024 - Present",
+    desc: "Built web applications using Node.js, Express.js, React, and templating engines like Pug, EJS, and Handlebars.",
   },
 ];

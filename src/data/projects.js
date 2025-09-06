@@ -1,18 +1,19 @@
 export const projects = [
   {
     id: 1,
-    title: "Everest Equity Club (Demo)",
+    title: "Everest Equity Club (Backend)",
     description:
-      "A club dashboard for managing contributions, proposals, and meetings. Built with Django DRF + React.",
-    tags: ["React", "Django", "DRF", "Tailwind"],
+      "Implemented the backend for a club dashboard using Django REST Framework. Managed contributions, proposals, meetings, and voting logic.",
+    tags: ["Django", "DRF", "PostgreSQL"],
     repo: "#",
     live: "#",
   },
   {
     id: 2,
-    title: "RentMate (Demo)",
-    description: "Rent and utility tracker with reminders and analytics.",
-    tags: ["React", "Tailwind", "Charting"],
+    title: "RentMate (Backend)",
+    description:
+      "Developed backend APIs for a rent and utility tracker using Django REST Framework. Handled user authentication, reminders, and data analytics endpoints.",
+    tags: ["Django", "DRF", "PostgreSQL"],
     repo: "#",
     live: "#",
   },
@@ -20,12 +21,27 @@ export const projects = [
     id: 3,
     title: "Portfolio Site",
     description:
-      "This very portfolio demo demonstrating reusable components and Tailwind layout.",
+      "This portfolio demo demonstrating reusable React components and Tailwind layout.",
     tags: ["React", "Tailwind", "Vite"],
     repo: "#",
     live: "#",
   },
+  {
+    id: 4,
+    title: "Django E-Commerce App",
+    description:
+      "An online store built with Django and PostgreSQL. Features product catalog, shopping cart, and order management.",
+    tags: ["Django", "PostgreSQL"],
+    repo: "#",
+    live: "#",
+  },
+  {
+    id: 5,
+    title: "Express.js E-Commerce App",
+    description:
+      "A fullstack e-commerce app built with Node.js, Express.js, MongoDB, and EJS templating. Includes user authentication, product management, and payment integration.",
+    tags: ["Node.js", "Express.js", "MongoDB", "EJS"],
+    repo: "#",
+    live: "#",
+  },
 ];
-// Add more projects as needed
-// You can also fetch this data from an API or a database
-// For simplicity, we're using a static array here
