@@ -8,20 +8,18 @@ export default function About() {
         <div className="mt-4 text-gray-700 dark:text-gray-300 max-w-3xl">
           <p>
             I'm a developer focused on building robust backends with Django and
-            delightful frontends with React. I care about maintainable code,
-            tests, and automation that saves time.
+            engaging frontends with React. I care about writing clean,
+            maintainable code and creating intuitive user experiences.
           </p>
           <ul className="mt-4 list-disc pl-5 space-y-2">
             <li>
               Experienced with Django REST Framework, JWT, and PostgreSQL.
             </li>
+            <li>Skilled in building web apps with Node.js and Express.js.</li>
             <li>
-              Implemented Celery tasks for scheduled reminders & background
-              jobs.
+              Familiar with templating engines like Pug, EJS, and Handlebars.
             </li>
-            <li>
-              Comfortable designing and consuming APIs, and writing unit tests.
-            </li>
+            <li>Comfortable designing and consuming RESTful APIs.</li>
           </ul>
         </div>
       </Container>
