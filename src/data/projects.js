@@ -5,7 +5,7 @@ export const projects = [
     description:
       "Implemented the backend for a club dashboard using Django REST Framework. Managed contributions, proposals, meetings, and voting logic.",
     tags: ["Django", "DRF", "PostgreSQL"],
-    repo: "#",
+    repo: "https://github.com/MindRisers-Technologies/Everest_equity-backend",
     live: "#",
   },
   {
@@ -14,7 +14,7 @@ export const projects = [
     description:
       "Developed backend APIs for a rent and utility tracker using Django REST Framework. Handled user authentication, reminders, and data analytics endpoints.",
     tags: ["Django", "DRF", "PostgreSQL"],
-    repo: "#",
+    repo: "https://github.com/sabinpr/rentmate",
     live: "#",
   },
   {
@@ -23,7 +23,7 @@ export const projects = [
     description:
       "This portfolio demo demonstrating reusable React components and Tailwind layout.",
     tags: ["React", "Tailwind", "Vite"],
-    repo: "#",
+    repo: "https://github.com/sabinpr/My-Portfolio",
     live: "#",
   },
   {
@@ -32,7 +32,7 @@ export const projects = [
     description:
       "An online store built with Django and PostgreSQL. Features product catalog, shopping cart, and order management.",
     tags: ["Django", "PostgreSQL"],
-    repo: "#",
+    repo: "https://github.com/sabinpr/shop-app",
     live: "#",
   },
   {
@@ -41,7 +41,7 @@ export const projects = [
     description:
       "A fullstack e-commerce app built with Node.js, Express.js, MongoDB, and EJS templating. Includes user authentication, product management, and payment integration.",
     tags: ["Node.js", "Express.js", "MongoDB", "EJS"],
-    repo: "#",
+    repo: "https://github.com/sabinpr/E-commerce-Application-",
     live: "#",
   },
 ];
