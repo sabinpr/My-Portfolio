@@ -32,10 +32,10 @@ export default function Hero() {
             </div>
 
             <div className="mt-8 flex items-center gap-4 text-gray-600 dark:text-gray-300">
-              <a href="#">
+              <a href="https://github.com/sabinpr">
                 <FiGithub size={20} />
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/in/sabin-prajapati-6b8b4523b/">
                 <FiLinkedin size={20} />
               </a>
               <a href="#contact">

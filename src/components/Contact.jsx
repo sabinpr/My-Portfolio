@@ -67,15 +67,19 @@ export default function Contact() {
             </p>
             <div className="mt-4 space-y-3">
               <div className="flex items-center gap-3">
-                <FiMail /> <span className="text-sm">hello@example.com</span>
+                <FiMail />{" "}
+                <span className="text-sm">
+                  sabinprajapati.verified@gmail.com
+                </span>
               </div>
               <div className="flex items-center gap-3">
-                <FiGithub />{" "}
-                <span className="text-sm">github.com/yourhandle</span>
+                <FiGithub /> <span className="text-sm">github.com/sabinpr</span>
               </div>
               <div className="flex items-center gap-3">
                 <FiLinkedin />{" "}
-                <span className="text-sm">linkedin.com/in/yourhandle</span>
+                <span className="text-sm">
+                  linkedin.com/in/sabin-prajapati-6b8b4523b/
+                </span>
               </div>
             </div>
           </div>
