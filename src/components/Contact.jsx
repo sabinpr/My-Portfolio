@@ -18,7 +18,7 @@ export default function Contact() {
 
     try {
       const res = await fetch(
-        "https://portfolio-backend-production-d840.up.railway.app/api/contact/",
+        "https://portfolio-backend-6g0v.onrender.com/api/contact/",
         {
           method: "POST",
           headers: {
