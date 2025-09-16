@@ -40,7 +40,7 @@ export default function Hero() {
     "bg-indigo-600 text-white hover:-translate-y-1 hover:scale-105 hover:rotate-1 hover:bg-indigo-700";
 
   const buttonHoverSecondary =
-    "border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800";
+    "border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 hover:-translate-y-1 hover:scale-105 hover:rotate-1";
 
   // Social Links
   const socialLinks = [
