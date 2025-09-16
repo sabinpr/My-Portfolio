@@ -6,34 +6,43 @@ export default function Hero() {
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef(null);
 
+  // Intersection Observer for fade-in animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.disconnect(); // trigger only once
+          observer.disconnect(); // Trigger once
         }
       },
       { threshold: 0.2 }
     );
-
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
-  const fadeInStyle = (index) => ({
-    transform: visible ? "translateY(0)" : "translateY(24px)",
-    opacity: visible ? 1 : 0,
-    transition: "opacity 0.7s ease-out, transform 0.7s ease-out",
-    transitionDelay: `${index * 100}ms`,
-  });
+  // Utility for fade-in with stagger
+  const fadeInClass = (index) =>
+    `transition-all duration-700 ease-out transform ${
+      visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+    } delay-[${index * 100}ms]`;
 
-  const buttonClass =
-    "inline-flex items-center px-5 py-3 rounded-lg shadow transition transform hover:-translate-y-1 hover:scale-105 hover:rotate-1 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2";
+  // Buttons
+  const buttons = [
+    { text: "View Projects", href: "#projects", primary: true },
+    { text: "Get in Touch", href: "#contact", primary: false },
+  ];
 
-  const socialClass =
-    "p-3 rounded-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-white hover:bg-indigo-600 dark:hover:bg-indigo-500 hover:scale-110 animate-bounce-on-hover transition-all duration-300";
+  const buttonBase =
+    "inline-flex items-center px-5 py-3 rounded-lg shadow transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2";
 
+  const buttonHoverPrimary =
+    "bg-indigo-600 text-white hover:-translate-y-1 hover:scale-105 hover:rotate-1 hover:bg-indigo-700";
+
+  const buttonHoverSecondary =
+    "border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800";
+
+  // Social Links
   const socialLinks = [
     {
       href: "https://github.com/sabinpr",
@@ -48,6 +57,12 @@ export default function Hero() {
     { href: "#contact", icon: <FiMail size={20} />, label: "Email" },
   ];
 
+  const socialBase =
+    "p-3 rounded-full border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 transition-transform duration-300";
+
+  const socialHover =
+    "hover:scale-125 hover:text-white hover:bg-indigo-600 dark:hover:bg-indigo-500";
+
   return (
     <section
       id="hero"
@@ -59,8 +74,9 @@ export default function Hero() {
           {/* Text Content */}
           <div>
             <h1
-              style={fadeInStyle(0)}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight"
+              className={`${fadeInClass(
+                0
+              )} text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight`}
             >
               Hi, I'm{" "}
               <span className="bg-gradient-to-r from-indigo-600 via-sky-500 to-indigo-400 bg-clip-text text-transparent animate-gradient-slide">
@@ -68,9 +84,11 @@ export default function Hero() {
               </span>{" "}
               — a Backend-focused Fullstack Developer.
             </h1>
+
             <p
-              style={fadeInStyle(1)}
-              className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed transition-colors duration-300"
+              className={`${fadeInClass(
+                1
+              )} mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed`}
             >
               I build reliable APIs with Django and Node.js, clean React
               frontends, and server-side rendered apps using templating engines
@@ -79,35 +97,32 @@ export default function Hero() {
             </p>
 
             {/* Buttons */}
-            <div style={fadeInStyle(2)} className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#projects"
-                className={`${buttonClass} bg-indigo-600 text-white hover:bg-indigo-700`}
-                aria-label="View Projects"
-              >
-                View Projects
-              </a>
-              <a
-                href="#contact"
-                className={`${buttonClass} border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800`}
-                aria-label="Get in Touch"
-              >
-                Get in Touch
-              </a>
+            <div className="mt-8 flex flex-wrap gap-4">
+              {buttons.map((btn, i) => (
+                <a
+                  key={i}
+                  href={btn.href}
+                  className={`${fadeInClass(i + 2)} ${buttonBase} ${
+                    btn.primary ? buttonHoverPrimary : buttonHoverSecondary
+                  }`}
+                  aria-label={btn.text}
+                >
+                  {btn.text}
+                </a>
+              ))}
             </div>
 
             {/* Social Links */}
-            <div
-              style={fadeInStyle(3)}
-              className="mt-10 flex items-center gap-4"
-            >
+            <div className="mt-10 flex items-center gap-4">
               {socialLinks.map(({ href, icon, label }, i) => (
                 <a
                   key={i}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={socialClass}
+                  className={`${fadeInClass(
+                    i + 4
+                  )} ${socialBase} ${socialHover}`}
                   aria-label={label}
                 >
                   {icon}
@@ -118,8 +133,9 @@ export default function Hero() {
 
           {/* Featured Project */}
           <div
-            style={fadeInStyle(4)}
-            className="bg-gradient-to-br from-indigo-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-105 hover:rotate-1 transition-all duration-300"
+            className={`${fadeInClass(
+              8
+            )} bg-gradient-to-br from-indigo-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-105 hover:rotate-1 transition-all duration-300`}
           >
             <div className="h-64 md:h-80 rounded-lg border border-dashed border-gray-300 dark:border-gray-700 flex items-center justify-center text-center p-6">
               <div>
@@ -148,31 +164,30 @@ export default function Hero() {
       </Container>
 
       {/* Tailwind Animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes gradient-slide {
-          0%,
-          100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
         }
         .animate-gradient-slide {
           background-size: 200% 200%;
           animation: gradient-slide 5s ease infinite;
         }
+
         @keyframes bounce-hover {
-          0%,
-          100% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.2);
-          }
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.15); }
         }
         .animate-bounce-on-hover:hover {
           animation: bounce-hover 0.4s ease forwards;
+        }
+
+        @keyframes button-bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-4px); }
+        }
+        .animate-button-bounce:hover {
+          animation: button-bounce 0.3s ease forwards;
         }
       `}</style>
     </section>
