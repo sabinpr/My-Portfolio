@@ -9,7 +9,7 @@ export default function ProjectCard({ p = {}, onOpen = () => {} }) {
     "px-3 py-1 border rounded-md text-sm text-gray-700 dark:text-gray-200 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 hover:scale-105";
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-transform transition-shadow duration-300 flex flex-col justify-between h-[380px]">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between h-[380px]">
       {/* Optional Image */}
       {p?.image && (
         <div className="mb-4 rounded-lg overflow-hidden">

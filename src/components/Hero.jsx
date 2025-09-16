@@ -1,7 +1,33 @@
+import { useEffect, useState, useRef } from "react";
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import Container from "./Container";
 
 export default function Hero() {
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect(); // trigger only once
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const fadeInStyle = (index) => ({
+    transform: visible ? "translateY(0)" : "translateY(24px)",
+    opacity: visible ? 1 : 0,
+    transition: "opacity 0.7s ease-out, transform 0.7s ease-out",
+    transitionDelay: `${index * 100}ms`,
+  });
+
   const buttonClass =
     "inline-flex items-center px-5 py-3 rounded-lg shadow transition transform hover:-translate-y-1 hover:scale-105 hover:rotate-1 duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2";
 
@@ -25,20 +51,27 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      ref={sectionRef}
       className="py-24 bg-white dark:bg-gray-950 transition-colors duration-500"
     >
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
+            <h1
+              style={fadeInStyle(0)}
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight"
+            >
               Hi, I'm{" "}
               <span className="bg-gradient-to-r from-indigo-600 via-sky-500 to-indigo-400 bg-clip-text text-transparent animate-gradient-slide">
                 Sabin
               </span>{" "}
               — a Backend-focused Fullstack Developer.
             </h1>
-            <p className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed transition-colors duration-300">
+            <p
+              style={fadeInStyle(1)}
+              className="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed transition-colors duration-300"
+            >
               I build reliable APIs with Django and Node.js, clean React
               frontends, and server-side rendered apps using templating engines
               like Pug, EJS, and Handlebars. I enjoy turning complex problems
@@ -46,7 +79,7 @@ export default function Hero() {
             </p>
 
             {/* Buttons */}
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div style={fadeInStyle(2)} className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#projects"
                 className={`${buttonClass} bg-indigo-600 text-white hover:bg-indigo-700`}
@@ -64,7 +97,10 @@ export default function Hero() {
             </div>
 
             {/* Social Links */}
-            <div className="mt-10 flex items-center gap-4">
+            <div
+              style={fadeInStyle(3)}
+              className="mt-10 flex items-center gap-4"
+            >
               {socialLinks.map(({ href, icon, label }, i) => (
                 <a
                   key={i}
@@ -81,7 +117,10 @@ export default function Hero() {
           </div>
 
           {/* Featured Project */}
-          <div className="bg-gradient-to-br from-indigo-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-105 hover:rotate-1 transition-transform transition-shadow duration-300">
+          <div
+            style={fadeInStyle(4)}
+            className="bg-gradient-to-br from-indigo-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-105 hover:rotate-1 transition-all duration-300"
+          >
             <div className="h-64 md:h-80 rounded-lg border border-dashed border-gray-300 dark:border-gray-700 flex items-center justify-center text-center p-6">
               <div>
                 <div className="font-semibold text-gray-800 dark:text-gray-200">

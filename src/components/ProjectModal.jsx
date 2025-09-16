@@ -1,10 +1,18 @@
 import { FiX } from "react-icons/fi";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 export default function ProjectModal({ project, onClose }) {
   const [visible, setVisible] = useState(false);
   const modalRef = useRef(null);
   const triggerRef = useRef(null);
+
+  const handleClose = useCallback(() => {
+    setVisible(false); // trigger closing animation
+    setTimeout(() => {
+      onClose?.();
+      triggerRef.current?.focus();
+    }, 300); // match transition duration
+  }, [onClose]);
 
   useEffect(() => {
     if (!project) return;
@@ -41,15 +49,7 @@ export default function ProjectModal({ project, onClose }) {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = ""; // restore scroll
     };
-  }, [project]);
-
-  const handleClose = () => {
-    setVisible(false);
-    setTimeout(() => {
-      onClose?.();
-      triggerRef.current?.focus();
-    }, 300);
-  };
+  }, [project, handleClose]);
 
   if (!project) return null;
 
@@ -61,9 +61,9 @@ export default function ProjectModal({ project, onClose }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center p-4`}
+      className={`fixed inset-0 z-[9999] flex items-center justify-center p-4 transition-opacity duration-300`}
       style={{
-        backgroundColor: "rgba(0,0,0,0.5)",
+        backgroundColor: visible ? "rgba(0,0,0,0.5)" : "rgba(0,0,0,0)",
         backdropFilter: "blur(4px)",
       }}
       onClick={handleClose}
@@ -105,13 +105,11 @@ export default function ProjectModal({ project, onClose }) {
 
         {/* Tags */}
         <div className="mt-4 flex flex-wrap gap-2">
-          {project.tags?.length
-            ? project.tags.map((t, i) => (
-                <span key={i} className={tagClass}>
-                  {t}
-                </span>
-              ))
-            : null}
+          {project.tags?.map((t, i) => (
+            <span key={i} className={tagClass}>
+              {t}
+            </span>
+          ))}
         </div>
 
         {/* Actions */}
