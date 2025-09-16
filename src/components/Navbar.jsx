@@ -16,7 +16,7 @@ export default function Navbar({ onThemeToggle, dark, onOpenNav, navOpen }) {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <header className="sticky top-0 z-50 bg-gray-50 dark:bg-gray-900/70 backdrop-blur border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
       <Container>
         <div className="flex items-center justify-between py-4">
           {/* Logo + Desktop Nav */}

@@ -1,13 +1,23 @@
 import Container from "./Container";
 
-const techBadge =
-  "font-medium transition-all duration-500 bg-clip-text text-transparent";
+const TechBadge = ({ children }) => (
+  <span
+    className="font-medium bg-clip-text text-transparent
+               bg-gradient-to-r from-indigo-600 to-purple-600
+               dark:from-indigo-400 dark:to-purple-400
+               transition-all duration-500
+               hover:from-purple-600 hover:to-indigo-600 dark:hover:from-purple-400 dark:hover:to-indigo-400
+               drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
+  >
+    {children}
+  </span>
+);
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="py-8 border-t dark:border-gray-800 bg-gray-50 dark:bg-gray-900 transition-colors duration-500">
+    <footer className="relative py-8 bg-gray-50 dark:bg-gray-900 transition-colors duration-500 border-t border-gray-200 dark:border-gray-800">
       <Container className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-600 dark:text-gray-400">
         {/* Copyright */}
         <p className="text-center sm:text-left">
@@ -20,18 +30,8 @@ export default function Footer() {
 
         {/* Technology Credits */}
         <p className="text-center sm:text-right flex flex-wrap gap-2 justify-center sm:justify-end">
-          Built with{" "}
-          <span
-            className={`${techBadge} bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-purple-500 hover:to-indigo-500`}
-          >
-            React
-          </span>{" "}
-          +{" "}
-          <span
-            className={`${techBadge} bg-gradient-to-r from-sky-400 to-indigo-400 hover:from-indigo-400 hover:to-sky-400`}
-          >
-            TailwindCSS
-          </span>
+          Built with <TechBadge>React</TechBadge> +{" "}
+          <TechBadge>TailwindCSS</TechBadge>
         </p>
       </Container>
     </footer>
