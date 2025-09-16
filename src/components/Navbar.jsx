@@ -1,6 +1,3 @@
-import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
-import Container from "./Container";
-
 export default function Navbar({ onThemeToggle, dark, onOpenNav, navOpen }) {
   const navItems = ["About", "Projects", "Skills", "Experience", "Contact"];
   const NAVBAR_HEIGHT = 64;
@@ -29,7 +26,7 @@ export default function Navbar({ onThemeToggle, dark, onOpenNav, navOpen }) {
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 e.currentTarget.blur();
               }}
-              className="text-xl font-bold flex items-center h-8 transition-transform duration-300 hover:scale-105"
+              className="text-xl font-bold flex items-center h-8 transition-transform duration-300 hover:scale-105 cursor-pointer"
             >
               <img
                 src="/logo.png"
@@ -44,7 +41,7 @@ export default function Navbar({ onThemeToggle, dark, onOpenNav, navOpen }) {
                 <button
                   key={item}
                   onClick={() => scrollToId(item.toLowerCase())}
-                  className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500/30 dark:focus-visible:ring-indigo-400/30"
+                  className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500/30 dark:focus-visible:ring-indigo-400/30 cursor-pointer"
                 >
                   {item}
                 </button>
@@ -70,7 +67,7 @@ export default function Navbar({ onThemeToggle, dark, onOpenNav, navOpen }) {
             {/* Hire Me (Desktop) */}
             <a
               href="#contact"
-              className="hidden md:inline-block text-sm font-medium bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700 hover:scale-105 active:scale-95 transition-transform duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500/30 dark:focus-visible:ring-indigo-400/30"
+              className="hidden md:inline-block text-sm font-medium bg-indigo-600 text-white px-4 py-2 rounded-md shadow hover:bg-indigo-700 hover:scale-105 active:scale-95 transition-transform duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500/30 dark:focus-visible:ring-indigo-400/30 cursor-pointer"
             >
               Hire Me
             </a>
@@ -78,7 +75,7 @@ export default function Navbar({ onThemeToggle, dark, onOpenNav, navOpen }) {
             {/* Mobile Menu Toggle */}
             <button
               onClick={onOpenNav}
-              className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition md:hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500/30 dark:focus:ring-indigo-400/30"
+              className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition cursor-pointer md:hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500/30 dark:focus:ring-indigo-400/30"
             >
               {navOpen ? <FiX size={20} /> : <FiMenu size={20} />}
             </button>
@@ -99,7 +96,7 @@ export default function Navbar({ onThemeToggle, dark, onOpenNav, navOpen }) {
               <button
                 key={item}
                 onClick={() => scrollToId(item.toLowerCase())}
-                className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500/30 dark:focus-visible:ring-indigo-400/30"
+                className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500/30 dark:focus-visible:ring-indigo-400/30 cursor-pointer"
               >
                 {item}
               </button>
