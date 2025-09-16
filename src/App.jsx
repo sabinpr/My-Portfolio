@@ -34,6 +34,16 @@ export default function App() {
     localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
 
+  useEffect(() => {
+    // Disable browser scroll restoration
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    // Ensure scroll starts at top on initial load
+    window.scrollTo(0, 0);
+  }, []);
+
   // Handlers for opening and closing modal
   const handleOpenProject = (project) => setSelectedProject(project);
   const handleCloseProject = () => setSelectedProject(null);
