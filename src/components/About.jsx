@@ -38,7 +38,7 @@ export default function About() {
       <Container>
         <h2
           style={fadeInStyle(0)}
-          className="text-3xl font-bold text-gray-900 dark:text-white"
+          className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white text-center transform transition-transform duration-300 hover:scale-105 hover:text-indigo-600 dark:hover:text-indigo-400"
         >
           About Me
         </h2>
