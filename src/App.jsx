@@ -10,11 +10,10 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function App() {
+  // Initialize theme from localStorage or system preference
   const getInitialTheme = () => {
-    // Check localStorage first
     const saved = localStorage.getItem("theme");
     if (saved) return saved === "dark";
-    // Fallback to system preference
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   };
 
@@ -22,15 +21,24 @@ export default function App() {
   const [navOpen, setNavOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
+  // Apply theme changes to <html> and save preference
   useEffect(() => {
+    const root = document.documentElement;
     if (dark) {
-      document.documentElement.classList.add("dark");
+      root.classList.add("dark");
       localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove("dark");
+      root.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
   }, [dark]);
+
+  // Close mobile nav on route change or click outside (optional)
+  useEffect(() => {
+    const handleResize = () => navOpen && setNavOpen(false);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [navOpen]);
 
   return (
     <div className="font-sans bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -41,12 +49,15 @@ export default function App() {
         onOpenNav={() => setNavOpen(!navOpen)}
       />
 
-      <Hero />
-      <About />
-      <Projects onOpen={(p) => setSelectedProject(p)} />
-      <Skills />
-      <Experience />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Projects onOpen={setSelectedProject} />
+        <Skills />
+        <Experience />
+        <Contact />
+      </main>
+
       <Footer />
 
       <ProjectModal

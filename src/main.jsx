@@ -3,7 +3,14 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-const en = document.getElementById("root");
-const root = ReactDOM.createRoot(en);
+// Get the root element
+const rootElement = document.getElementById("root");
 
-root.render(<App />);
+// Create React root (React 18+)
+const root = ReactDOM.createRoot(rootElement);
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
