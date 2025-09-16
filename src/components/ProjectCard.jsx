@@ -1,6 +1,6 @@
 export default function ProjectCard({ p = {}, onOpen = () => {} }) {
   const tagClass =
-    "text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-200 transition-all duration-300 hover:bg-indigo-100 dark:hover:bg-indigo-700 hover:text-indigo-700 dark:hover:text-indigo-200 cursor-default";
+    "text-xs px-3 py-1 rounded-full bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 transition-all duration-300 hover:bg-indigo-100 dark:hover:bg-indigo-700 hover:text-indigo-700 dark:hover:text-indigo-200 cursor-default";
 
   const buttonClass =
     "text-sm px-4 py-2 bg-indigo-600 text-white rounded-md shadow hover:bg-indigo-700 transform hover:-translate-y-0.5 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-300";
