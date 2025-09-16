@@ -1,3 +1,6 @@
+import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
+import Container from "./Container";
+
 export default function Navbar({ onThemeToggle, dark, onOpenNav, navOpen }) {
   const navItems = ["About", "Projects", "Skills", "Experience", "Contact"];
   const NAVBAR_HEIGHT = 64;
