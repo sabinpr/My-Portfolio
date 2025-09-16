@@ -3,45 +3,43 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
-import ProjectModal from "./components/ProjectModal";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ProjectModal from "./components/ProjectModal";
+import FadeInSection from "./components/FadeInSection";
+
+// Wrapper for consistent fade-in + section styling
+const SectionWrapper = ({ children, className = "" }) => (
+  <FadeInSection className={`transition-colors duration-300 ${className}`}>
+    <div className="bg-gray-50 dark:bg-gray-900">{children}</div>
+  </FadeInSection>
+);
 
 export default function App() {
-  // Initialize theme from localStorage or system preference
-  const getInitialTheme = () => {
+  const [dark, setDark] = useState(() => {
     const saved = localStorage.getItem("theme");
     if (saved) return saved === "dark";
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  };
+  });
 
-  const [dark, setDark] = useState(getInitialTheme);
   const [navOpen, setNavOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null); // Lifted project state
 
-  // Apply theme changes to <html> and save preference
+  // Sync theme with DOM and localStorage
   useEffect(() => {
     const root = document.documentElement;
-    if (dark) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
+    root.classList.toggle("dark", dark);
+    localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
 
-  // Close mobile nav on route change or click outside (optional)
-  useEffect(() => {
-    const handleResize = () => navOpen && setNavOpen(false);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [navOpen]);
+  // Handlers for opening and closing modal
+  const handleOpenProject = (project) => setSelectedProject(project);
+  const handleCloseProject = () => setSelectedProject(null);
 
   return (
-    <div className="font-sans bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div className="min-h-screen font-sans text-gray-900 dark:text-gray-100 transition-colors duration-300">
       <Navbar
         dark={dark}
         onThemeToggle={() => setDark(!dark)}
@@ -50,20 +48,37 @@ export default function App() {
       />
 
       <main>
-        <Hero />
-        <About />
-        <Projects onOpen={setSelectedProject} />
-        <Skills />
-        <Experience />
-        <Contact />
+        <SectionWrapper>
+          <Hero />
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <About />
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <Projects onOpenProject={handleOpenProject} />
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <Skills />
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <Experience />
+        </SectionWrapper>
+
+        <SectionWrapper>
+          <Contact />
+        </SectionWrapper>
       </main>
 
       <Footer />
 
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
+      {/* Modal rendered at top level to overlay everything */}
+      {selectedProject && (
+        <ProjectModal project={selectedProject} onClose={handleCloseProject} />
+      )}
     </div>
   );
 }
