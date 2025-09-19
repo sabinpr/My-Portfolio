@@ -5,7 +5,7 @@ export const projects = [
     description:
       "Implemented the backend for a club dashboard using Django REST Framework. Managed contributions, proposals, meetings, and voting logic.",
     tags: ["Django", "DRF", "PostgreSQL"],
-    repo: "https://github.com/MindRisers-Technologies/Everest_equity-backend",
+    repo: "https://github.com/sabinpr/Investment-Club",
     live: "#",
   },
   {
