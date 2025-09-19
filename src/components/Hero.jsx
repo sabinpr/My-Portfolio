@@ -143,7 +143,7 @@ export default function Hero() {
                   Featured Project
                 </div>
                 <div className="mt-3 font-bold text-2xl text-gray-900 dark:text-white">
-                  Everest Equity Dashboard
+                  Investment Club Dashboard
                 </div>
                 <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-sm mx-auto">
                   Member/admin dashboards, proposal & voting flows, and
