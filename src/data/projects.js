@@ -51,6 +51,6 @@ export const projects = [
       "A personal portfolio website highlighting projects and skills, built with React and Tailwind CSS. Fully responsive and deployed on Vercel.",
     tags: ["React", "Tailwind CSS"],
     repo: "https://github.com/sabinpr/Nabin-Portfolio",
-    live: "https://nabin-prajapati.com.np/",
+    live: "https://www.nabin-prajapati.com.np/",
   },
 ];
