@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: 1,
-    title: "Everest Equity Club (Backend)",
+    title: "Investment Club (Backend)",
     description:
       "Implemented the backend for a club dashboard using Django REST Framework. Managed contributions, proposals, meetings, and voting logic.",
     tags: ["Django", "DRF", "PostgreSQL"],
