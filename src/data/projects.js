@@ -44,4 +44,13 @@ export const projects = [
     repo: "https://github.com/sabinpr/E-commerce-Application-",
     live: "#",
   },
+  {
+    id: 6,
+    title: "Nabin Portfolio",
+    description:
+      "A personal portfolio website showcasing projects and skills, built with React and Tailwind CSS.",
+    tags: ["React", "Tailwind CSS"],
+    repo: "https://github.com/sabinpr/Nabin-Portfolio",
+    live: "https://nabin-portfolio-nine.vercel.app",
+  },
 ];
