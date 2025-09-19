@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SEO from "./components/SEO";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -10,7 +11,6 @@ import Footer from "./components/Footer";
 import ProjectModal from "./components/ProjectModal";
 import FadeInSection from "./components/FadeInSection";
 
-// Wrapper for consistent fade-in + section styling
 const SectionWrapper = ({ children, className = "" }) => (
   <FadeInSection className={`transition-colors duration-300 ${className}`}>
     <div className="bg-gray-50 dark:bg-gray-900">{children}</div>
@@ -25,9 +25,8 @@ export default function App() {
   });
 
   const [navOpen, setNavOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null); // Lifted project state
+  const [selectedProject, setSelectedProject] = useState(null);
 
-  // Sync theme with DOM and localStorage
   useEffect(() => {
     const root = document.documentElement;
     root.classList.toggle("dark", dark);
@@ -35,21 +34,25 @@ export default function App() {
   }, [dark]);
 
   useEffect(() => {
-    // Disable browser scroll restoration
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
-
-    // Ensure scroll starts at top on initial load
     window.scrollTo(0, 0);
   }, []);
 
-  // Handlers for opening and closing modal
   const handleOpenProject = (project) => setSelectedProject(project);
   const handleCloseProject = () => setSelectedProject(null);
 
   return (
     <div className="min-h-screen font-sans text-gray-900 dark:text-gray-100 transition-colors duration-300">
+      {/* SEO for single-page portfolio */}
+      <SEO
+        title="Sabin Prajapati | Portfolio"
+        description="Portfolio of Sabin Prajapati, software developer and designer."
+        url="https://sabinprajapati7.com.np/"
+        image="https://sabinprajapati7.com.np/logo.png"
+      />
+
       <Navbar
         dark={dark}
         onThemeToggle={() => setDark(!dark)}
@@ -61,23 +64,18 @@ export default function App() {
         <SectionWrapper>
           <Hero />
         </SectionWrapper>
-
         <SectionWrapper>
           <About />
         </SectionWrapper>
-
         <SectionWrapper>
           <Projects onOpenProject={handleOpenProject} />
         </SectionWrapper>
-
         <SectionWrapper>
           <Skills />
         </SectionWrapper>
-
         <SectionWrapper>
           <Experience />
         </SectionWrapper>
-
         <SectionWrapper>
           <Contact />
         </SectionWrapper>
@@ -85,7 +83,6 @@ export default function App() {
 
       <Footer />
 
-      {/* Modal rendered at top level to overlay everything */}
       {selectedProject && (
         <ProjectModal project={selectedProject} onClose={handleCloseProject} />
       )}
