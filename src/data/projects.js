@@ -19,12 +19,12 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Portfolio Demo",
+    title: "Live Portfolio Website",
     description:
-      "A demo portfolio showcasing reusable React components and responsive layouts using Tailwind CSS and Vite for optimal performance.",
+      "My current live portfolio built with React and Tailwind CSS, showcasing projects, skills, and responsive design for optimal user experience.",
     tags: ["React", "Tailwind CSS", "Vite"],
     repo: "https://github.com/sabinpr/My-Portfolio",
-    live: "#",
+    live: "https://sabinprajapati7.com.np",
   },
   {
     id: 4,
