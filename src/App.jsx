@@ -47,8 +47,8 @@ export default function App() {
     <div className="min-h-screen font-sans text-gray-900 dark:text-gray-100 transition-colors duration-300">
       {/* SEO for single-page portfolio */}
       <SEO
-        title="Sabin Prajapati | Portfolio"
-        description="Portfolio of Sabin Prajapati, software developer and designer."
+        title="Sabin Prajapati | Software Developer | Django & React Portfolio"
+        description="Portfolio of Sabin Prajapati — showcasing projects in Django, REST APIs, React, and full-stack development."
         url="https://sabinprajapati7.com.np/"
         image="https://sabinprajapati7.com.np/logo.png"
       />
