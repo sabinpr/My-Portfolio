@@ -48,9 +48,18 @@ export const projects = [
     id: 6,
     title: "Nabin Prajapati Portfolio",
     description:
-      "A personal portfolio website highlighting projects and skills, built with React and Tailwind CSS. Fully responsive and deployed on Vercel.",
+      "A professional portfolio website for Dr. Nabin Prajapati, showcasing medical expertise, qualifications, and services. Built with React and Tailwind CSS, fully responsive, and hosted on Vercel.",
     tags: ["React", "Tailwind CSS"],
     repo: "https://github.com/sabinpr/Nabin-Portfolio",
     live: "https://www.nabin-prajapati.com.np/",
+  },
+  {
+    id: 7,
+    title: "Ishu Shrestha Portfolio",
+    description:
+      "A professional portfolio website for Dr. Ishu Shrestha, highlighting medical background, specialties, and patient services. Developed with React and Tailwind CSS, responsive on all devices, and deployed on Vercel.",
+    tags: ["React", "Tailwind CSS"],
+    repo: "https://github.com/sabinpr/Ishu-Portfolio",
+    live: "https://www.ishushrestha.com.np/",
   },
 ];
