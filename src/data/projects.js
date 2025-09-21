@@ -5,8 +5,8 @@ export const projects = [
     description:
       "Developed a robust backend for an investment club dashboard using Django REST Framework. Implemented features for managing contributions, proposals, meetings, and voting workflows.",
     tags: ["Django", "DRF", "PostgreSQL"],
-    repo: "",
-    live: "https://github.com/sabinpr/Investment-Club",
+    repo: "https://github.com/sabinpr/Investment-Club",
+    live: "",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const projects = [
       "Built backend APIs for a rent and utility tracking system with Django REST Framework. Handled user authentication, automated reminders, and analytics endpoints for efficient data management.",
     tags: ["Django", "DRF", "PostgreSQL"],
     repo: "https://github.com/sabinpr/rentmate",
-    live: "https://github.com/sabinpr/rentmate",
+    live: "",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const projects = [
       "Created a full-featured e-commerce application with Django and PostgreSQL. Features include product catalog, shopping cart, order management, and secure user authentication.",
     tags: ["Django", "PostgreSQL"],
     repo: "https://github.com/sabinpr/shop-app",
-    live: "https://github.com/sabinpr/shop-app",
+    live: "",
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ export const projects = [
       "Developed a fullstack e-commerce platform using Node.js, Express.js, MongoDB, and EJS templating. Implemented user authentication, product management, and payment integration.",
     tags: ["Node.js", "Express.js", "MongoDB", "EJS"],
     repo: "https://github.com/sabinpr/E-commerce-Application-",
-    live: "https://github.com/sabinpr/E-commerce-Application-",
+    live: "",
   },
   {
     id: 6,
