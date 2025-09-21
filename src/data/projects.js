@@ -5,8 +5,8 @@ export const projects = [
     description:
       "Developed a robust backend for an investment club dashboard using Django REST Framework. Implemented features for managing contributions, proposals, meetings, and voting workflows.",
     tags: ["Django", "DRF", "PostgreSQL"],
-    repo: "https://github.com/sabinpr/Investment-Club",
-    live: "#",
+    repo: "",
+    live: "https://github.com/sabinpr/Investment-Club",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const projects = [
       "Built backend APIs for a rent and utility tracking system with Django REST Framework. Handled user authentication, automated reminders, and analytics endpoints for efficient data management.",
     tags: ["Django", "DRF", "PostgreSQL"],
     repo: "https://github.com/sabinpr/rentmate",
-    live: "#",
+    live: "https://github.com/sabinpr/rentmate",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const projects = [
       "Created a full-featured e-commerce application with Django and PostgreSQL. Features include product catalog, shopping cart, order management, and secure user authentication.",
     tags: ["Django", "PostgreSQL"],
     repo: "https://github.com/sabinpr/shop-app",
-    live: "#",
+    live: "https://github.com/sabinpr/shop-app",
   },
   {
     id: 5,
@@ -42,7 +42,7 @@ export const projects = [
       "Developed a fullstack e-commerce platform using Node.js, Express.js, MongoDB, and EJS templating. Implemented user authentication, product management, and payment integration.",
     tags: ["Node.js", "Express.js", "MongoDB", "EJS"],
     repo: "https://github.com/sabinpr/E-commerce-Application-",
-    live: "#",
+    live: "https://github.com/sabinpr/E-commerce-Application-",
   },
   {
     id: 6,
@@ -61,5 +61,14 @@ export const projects = [
     tags: ["React", "Tailwind CSS"],
     repo: "https://github.com/sabinpr/Ishu-Portfolio",
     live: "https://www.ishushrestha.com.np/",
+  },
+  {
+    id: 8,
+    title: "Learning Management System (LMS) Backend",
+    description:
+      "Developed the backend of a Learning Management System (LMS) using Django REST Framework. Implemented course management, user authentication, and interactive quiz APIs with secure data handling.",
+    tags: ["Django", "DRF", "PostgreSQL"],
+    repo: "https://github.com/sabinpr/Learning-Management-System",
+    live: "https://learning-management-system-tk4h.onrender.com",
   },
 ];
