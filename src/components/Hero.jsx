@@ -30,6 +30,12 @@ export default function Hero() {
   // Buttons
   const buttons = [
     { text: "View Projects", href: "#projects", primary: true },
+    {
+      text: "Download CV",
+      href: "/Sabin_Prajapati_CV.pdf",
+      primary: true,
+      download: true,
+    },
     { text: "Get in Touch", href: "#contact", primary: false },
   ];
 
