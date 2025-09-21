@@ -112,6 +112,7 @@ export default function Hero() {
                     btn.primary ? buttonHoverPrimary : buttonHoverSecondary
                   }`}
                   aria-label={btn.text}
+                  {...(btn.download ? { download: true } : {})} // 👈 makes it download
                 >
                   {btn.text}
                 </a>
