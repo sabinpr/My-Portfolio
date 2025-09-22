@@ -25,7 +25,7 @@ export default function About() {
   const fadeInStyle = (index) => ({
     transform: visible ? "translateY(0)" : "translateY(24px)",
     opacity: visible ? 1 : 0,
-    transition: "all 0.7s ease",
+    transition: "opacity 0.7s ease-out, transform 0.7s ease-out",
     transitionDelay: `${index * 100}ms`,
   });
 
