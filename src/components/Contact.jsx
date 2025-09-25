@@ -53,7 +53,7 @@ export default function Contact() {
 
     try {
       const res = await fetch(
-        "https://portfolio-backend-6g0v.onrender.com/api/contact/",
+        "https://portfolio-backend-jx1d.onrender.com/api/contact/",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
