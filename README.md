@@ -116,6 +116,6 @@ npm run preview
 
 ---
 
-## 📄 License
+## 📄 Author
 
-MIT License © 2025 Sabin Prajapati
+© 2025 Sabin Prajapati

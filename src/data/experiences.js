@@ -3,7 +3,7 @@ export const experiences = [
     id: 1,
     role: "Backend Intern",
     org: "Mindrisers Inc.",
-    date: "May 2025 - Present",
+    date: "May 2025 - Nov 2025",
     desc: "Developing Django REST APIs, managing PostgreSQL databases, and building backend services.",
   },
   {
