@@ -121,20 +121,26 @@ export default function Hero() {
 
             {/* Social Links */}
             <div className="mt-10 flex items-center gap-4">
-              {socialLinks.map(({ href, icon, label }, i) => (
-                <a
-                  key={i}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${fadeInClass(
-                    i + 4
-                  )} ${socialBase} ${socialHover}`}
-                  aria-label={label}
-                >
-                  {icon}
-                </a>
-              ))}
+              {socialLinks.map(({ href, icon, label }, i) => {
+                const isExternal = href.startsWith("http");
+
+                return (
+                  <a
+                    key={i}
+                    href={href}
+                    {...(isExternal && {
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    })}
+                    className={`${fadeInClass(
+                      i + 4
+                    )} ${socialBase} ${socialHover}`}
+                    aria-label={label}
+                  >
+                    {icon}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
