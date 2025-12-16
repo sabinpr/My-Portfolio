@@ -88,7 +88,7 @@ export default function Hero() {
               <span className="bg-gradient-to-r from-indigo-600 via-sky-500 to-indigo-400 bg-clip-text text-transparent animate-gradient-slide">
                 Sabin
               </span>{" "}
-              — a Backend-focused Fullstack Developer.
+              — a Fullstack Developer.
             </h1>
 
             <p
@@ -97,9 +97,9 @@ export default function Hero() {
               )} mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed`}
             >
               I build reliable APIs with Django and Node.js, clean React
-              frontends, and server-side rendered apps using templating engines
-              like Pug, EJS, and Handlebars. I enjoy turning complex problems
-              into simple, scalable solutions.
+              frontends, and performance-focused server-side rendered
+              applications. I enjoy turning complex problems into simple,
+              scalable solutions.
             </p>
 
             {/* Buttons */}
