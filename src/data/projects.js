@@ -71,4 +71,12 @@ export const projects = [
     repo: "https://github.com/sabinpr/Learning-Management-System",
     live: "https://learning-management-system-tk4h.onrender.com",
   },
+  {
+    id: 9,
+    title: "Travel Website",
+    description: "Build a Responsive website using html, css and javascript.",
+    tags: ["HTML", "CSS", "Javascript"],
+    repo: "https://github.com/sabinpr/Travel-website",
+    live: "https://nepaltravel.vercel.app",
+  },
 ];
