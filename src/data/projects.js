@@ -74,9 +74,17 @@ export const projects = [
   {
     id: 9,
     title: "Travel Website",
-    description: "Build a Responsive website using html, css and javascript.",
+    description: "Built a Responsive website using html, css and Javascript.",
     tags: ["HTML", "CSS", "Javascript"],
     repo: "https://github.com/sabinpr/Travel-website",
     live: "https://nepaltravel.vercel.app",
+  },
+  {
+    id: 9,
+    title: "Business Website",
+    description: "Built a Responsive website using HTML, CSS and Javascript.",
+    tags: ["HTML", "CSS", "Javascript"],
+    repo: "https://github.com/sabinpr/Business-Website",
+    live: "https://businessnepal.vercel.app",
   },
 ];
