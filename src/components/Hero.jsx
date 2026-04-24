@@ -15,7 +15,7 @@ export default function Hero() {
           observer.disconnect(); // Trigger once
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -81,7 +81,7 @@ export default function Hero() {
           <div>
             <h1
               className={`${fadeInClass(
-                0
+                0,
               )} text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight`}
             >
               Hi, I'm{" "}
@@ -93,7 +93,7 @@ export default function Hero() {
 
             <p
               className={`${fadeInClass(
-                1
+                1,
               )} mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed`}
             >
               I build reliable APIs with Django and Node.js, clean React
@@ -133,7 +133,7 @@ export default function Hero() {
                       rel: "noopener noreferrer",
                     })}
                     className={`${fadeInClass(
-                      i + 4
+                      i + 4,
                     )} ${socialBase} ${socialHover}`}
                     aria-label={label}
                   >
@@ -147,7 +147,7 @@ export default function Hero() {
           {/* Featured Project */}
           <div
             className={`${fadeInClass(
-              8
+              8,
             )} bg-gradient-to-br from-indigo-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:scale-105 hover:rotate-1 transition-all duration-300`}
           >
             <div className="h-64 md:h-80 rounded-lg border border-dashed border-gray-300 dark:border-gray-700 flex items-center justify-center text-center p-6">
@@ -156,15 +156,15 @@ export default function Hero() {
                   Featured Project
                 </div>
                 <div className="mt-3 font-bold text-2xl text-gray-900 dark:text-white">
-                  Investment Club Dashboard
+                  Business Website Dashboard
                 </div>
                 <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-sm mx-auto">
-                  Member/admin dashboards, proposal & voting flows, and
-                  automatic allocation logic.
+                  A Fully Responsive website across different platforms. Built
+                  using HTML, CSS and Javascript.
                 </p>
                 <div className="mt-5 inline-flex gap-3">
                   <a
-                    href="#projects"
+                    href="https://businessnepal.vercel.app"
                     className="px-4 py-2 bg-white dark:bg-gray-800 rounded-md border hover:bg-gray-100 dark:hover:bg-gray-700 transition transform hover:-translate-y-1 hover:scale-105 duration-300"
                   >
                     Explore
