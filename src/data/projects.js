@@ -87,4 +87,12 @@ export const projects = [
     repo: "https://github.com/sabinpr/Business-Website",
     live: "https://businessnepal.vercel.app",
   },
+  {
+    id: 10,
+    title: "Interior Decoration Website",
+    description: "Built a Responsive website using HTML, CSS and Javascript.",
+    tags: ["HTML", "CSS", "Javascript"],
+    repo: "https://github.com/sabinpr/Form-rite",
+    live: "https://form-rite.vercel.app",
+  },
 ];
