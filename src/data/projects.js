@@ -80,7 +80,7 @@ export const projects = [
     live: "https://nepaltravel.vercel.app",
   },
   {
-    id: 9,
+    id: 10,
     title: "Business Website",
     description: "Built a Responsive website using HTML, CSS and Javascript.",
     tags: ["HTML", "CSS", "Javascript"],
@@ -88,11 +88,19 @@ export const projects = [
     live: "https://businessnepal.vercel.app",
   },
   {
-    id: 10,
+    id: 11,
     title: "Interior Decoration Website",
     description: "Built a Responsive website using HTML, CSS and Javascript.",
     tags: ["HTML", "CSS", "Javascript"],
     repo: "https://github.com/sabinpr/Form-rite",
     live: "https://form-rite.vercel.app",
+  },
+  {
+    id: 12,
+    title: "DeAnte Brand Website",
+    description: "Built a Responsive website using Wordpress, Elementor, HTML, CSS and Javascript.",
+    tags: ["HTML", "CSS", "Javascript", "Wordpress", "Elementor"],
+    repo: "https://github.com/sabinpr/DeAnte-",
+    live: "https://de-ante.vercel.app",
   },
 ];
