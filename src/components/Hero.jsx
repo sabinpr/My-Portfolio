@@ -156,7 +156,7 @@ export default function Hero() {
                   Featured Project
                 </div>
                 <div className="mt-3 font-bold text-2xl text-gray-900 dark:text-white">
-                  Business Website Dashboard
+                  FormRite Website Dashboard
                 </div>
                 <p className="mt-3 text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-sm mx-auto">
                   A Fully Responsive website across different platforms. Built
@@ -164,7 +164,7 @@ export default function Hero() {
                 </p>
                 <div className="mt-5 inline-flex gap-3">
                   <a
-                    href="https://businessnepal.vercel.app"
+                    href="https://form-rite.vercel.app"
                     className="px-4 py-2 bg-white dark:bg-gray-800 rounded-md border hover:bg-gray-100 dark:hover:bg-gray-700 transition transform hover:-translate-y-1 hover:scale-105 duration-300"
                   >
                     Explore
